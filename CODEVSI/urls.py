@@ -22,5 +22,5 @@ urlpatterns = [
 ]
 
 urlpatterns += [
-    path('', RedirectView.as_view(url='/catalog/', permanent=True)),
+    path('', RedirectView.as_view(url='/meeressources/', permanent=True)),
 ]
