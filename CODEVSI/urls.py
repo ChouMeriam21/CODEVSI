@@ -19,6 +19,11 @@ from django.urls import include
 from django.views.generic import RedirectView
 from django.conf import settings
 from django.conf.urls.static import static
+<<<<<<< HEAD
+=======
+from django.urls import include
+
+>>>>>>> Branch2
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,4 +37,8 @@ urlpatterns += [
     path('', RedirectView.as_view(url='/meeressources/', permanent=True)),
 ]
 
+<<<<<<< HEAD
 urlpatterns += static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
+=======
+urlpatterns += static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
+>>>>>>> Branch2
