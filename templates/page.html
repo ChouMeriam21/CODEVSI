@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+{% load static %}
+  <!-- Coding by CodingLab | www.codinglabweb.com -->
+<html lang="fr">
+    <style>
+    .content-table {
+        border-collapse: separate;
+        margin: 120px 0;
+        font-size:0.9em;
+        min-width: 990px;
+        border-radius: 5px 5px 0 0;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+    
+    .content-table thead tr {
+        background-color:#E4E9F7;
+        color: #695CFE;
+        text-align: center;
+        font-weight: bold;
+    
+    }
+    .content-table td {
+        padding: 12px 15px;
+    }
+    .content-table th,
+        
+    .content-table tbody tr{
+        border-bottom: 1px solid white;
+    }
+    .content-table tbody tr:nth-of-type(even) {
+        background:#f3f3f3;
+    }
+    .content-table tbody tr:last-of-type {
+        border-bottom: 2px solid #E4E9F7;
+    }
+    .content-table tbody tr.active-row {
+        font-weight: bold;
+        color: #E4E9F7;
+    }
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'css/page.css' %}" rel="stylesheet">
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!----===== Boxicons CSS ===== -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    
+    <!--<title>Dashboard Sidebar Menu</title>--> 
+</head>
+<body>
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <!--<img src="logo.png" alt="">-->
+                </span>
+
+                <div class="text logo-text">
+                    <span class="name">Nom Prénom</span>
+                    <span class="profession">Administrateur</span>
+                </div>
+            </div>
+
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-home-alt icon' ></i>
+                            <span class="text nav-text">Ma Fiche</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-user-circle icon' ></i>
+                            <span class="text nav-text">Membres MEE</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-bookmark icon'></i>
+                            <span class="text nav-text">Ressources MEE</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-link icon' ></i>
+                            <span class="text nav-text">Associer ressource</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-user-plus icon' ></i>
+                            <span class="text nav-text">Demande d'ajout</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bottom-content">
+                <li class="">
+                    <a href="#">
+                        <i class='bx bx-log-out icon' ></i>
+                        <span class="text nav-text">Déconnexion</span>
+                    </a>
+                </li>  
+            </div>
+        </div>
+
+    </nav>
+
+    <section class="home">
+        <div class="text">
+            Mon Portail: Administrateur
+            <img class="header_img" src="https://upload.wikimedia.org/wikipedia/commons/6/67/IMT_Atlantique_logo.png" alt="">
+        </div>
+        <div class="card">
+            <h1 class="prf">
+              Ma Fiche
+            </h1>
+            <hr class="line"> <br><br> <br><br> <br>
+            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <label>
+                Id :
+            </label> <br> <br>
+            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <label>
+                Nom :
+            </label> <br> <br>
+            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <label>
+                Prénom :
+            </label> <br> <br>
+            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <label>
+                Email :
+            </label> <br> <br>
+            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <label> 
+                Mot de passe :
+            </label> <br> <br>
+            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <label>
+                Statut actuel :
+            </label> <br> <br>
+            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <label>
+                Statuts précédents :
+            </label>  
+            <table class="content-table">
+                <thead>
+                    <tr>
+                      <th scope="col">Statut</th>
+                      <th scope="col">Date Début</th>
+                      <th scope="col">Date Fin</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                      <th scope="row">cd</th>
+                      <td>cd</td>
+                      <td>cd</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">cd</th>
+                        <td>cd</td>
+                        <td>cd</td>
+                    </tr>
+                </tbody>
+            </table>
+         </div>
+
+    </section>
+
+    <script>
+        const body = document.querySelector('body'),
+      sidebar = body.querySelector('nav'),
+      toggle = body.querySelector(".toggle"),
+      searchBtn = body.querySelector(".search-box"),
+      modeSwitch = body.querySelector(".toggle-switch"),
+      modeText = body.querySelector(".mode-text");
+
+
+toggle.addEventListener("click" , () =>{
+    sidebar.classList.toggle("close");
+})
+
+searchBtn.addEventListener("click" , () =>{
+    sidebar.classList.remove("close");
+})
+
+modeSwitch.addEventListener("click" , () =>{
+    body.classList.toggle("dark");
+    
+    if(body.classList.contains("dark")){
+        modeText.innerText = "Light mode";
+    }else{
+        modeText.innerText = "Dark mode";
+        
+    }
+});
+    </script>
+
+</body>
+</html>
