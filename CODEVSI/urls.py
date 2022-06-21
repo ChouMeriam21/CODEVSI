@@ -31,7 +31,7 @@ urlpatterns += [
 ]
 
 urlpatterns += [
-    path('', RedirectView.as_view(url='/meeressources/', permanent=True)),      # Pour rediriger automatiquement vers la page d'accueil de l'appli
+    path('', RedirectView.as_view(url='/accounts/login', permanent=True)),      # Pour rediriger automatiquement vers la page d'authentification de l'appli
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)

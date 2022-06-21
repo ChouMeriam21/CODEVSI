@@ -61,7 +61,7 @@
                 </span>
 
                 <div class="text logo-text">
-                    <span class="name">Nom Prénom</span>
+                    <span class="name">{{Last_name}} {{First_name}}</span>
                     <span class="profession">Administrateur</span>
                 </div>
             </div>
@@ -80,7 +80,7 @@
                     </li>
 
                     <li class="nav-link">
-                        <a href="{% url 'membresMEE'%}">
+                        <a href="{% url 'admin:index'%}">
                             <i class='bx bx-user-circle icon' ></i>
                             <span class="text nav-text">Membres MEE</span>
                         </a>
@@ -138,47 +138,18 @@
             </h1>
             <hr class="line"> <br><br> <br><br> <br>
             &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <label>
-                Username : {{Users.username}} 
+                Username : {{Username}} 
             </label> <br> <br>
             &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <label>
-                Nom : {{Nom}}
+                First_name : {{First_name}}
             </label> <br> <br>
             &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <label>
-                Prénom :
+                Last_name : {{Last_name}}
             </label> <br> <br>
             &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <label>
-                Email :
-            </label> <br> <br>
-            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <label> 
-                Mot de passe :
-            </label> <br> <br>
-            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <label>
-                Statut actuel :
-            </label> <br> <br>
-            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <label>
-                Statuts précédents :
-            </label>  
-            <table class="content-table">
-                <thead>
-                    <tr>
-                      <th scope="col">Statut</th>
-                      <th scope="col">Date Début</th>
-                      <th scope="col">Date Fin</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                      <th scope="row">cd</th>
-                      <td>cd</td>
-                      <td>cd</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">cd</th>
-                        <td>cd</td>
-                        <td>cd</td>
-                    </tr>
-                </tbody>
-            </table>
+                Email : {{Email}}
+            </label>
+
          </div>
 
     </section>

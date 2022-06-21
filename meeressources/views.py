@@ -2,33 +2,46 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import *
 from django.views import generic 
+from django.contrib.auth.models import User
+from django.http import HttpRequest
 
 # Create your views here.
 def index(request):
-    return render(request, 'PageAccueil.html')
-def PageAdmin(request):
+    return render(request, 'registration/login.html')
 
-    Id = Utilisateur.id
-    Nom = Utilisateur.nom
+def PageMembre(request):
+
+
+    Username = request.user.username
+    First_name = request.user.first_name
+    Last_name = request.user.last_name
+    Email = request.user.email
 
     context = {
-        'Id' : Id,
-        'Nom' : Nom,
+        'Username' : Username,
+        'First_name' : First_name,
+        'Last_name' : Last_name,
+        'Email' : Email,
+    }
+
+    return render(request, 'PageMembre.html', context = context)
+
+def PageAdmin(request):
+
+
+    Username = request.user.username
+    First_name = request.user.first_name
+    Last_name = request.user.last_name
+    Email = request.user.email
+    context = {
+        'Username' : Username,
+        'First_name' : First_name,
+        'Last_name' : Last_name,
+        'Email' : Email,
     }
 
     return render(request, 'PageAdmin.html', context = context)
-def membresMEE(request):
 
-    NombreDeMembres = Utilisateur.objects.all().count()
-    NombreAdmin = Utilisateur.objects.filter(rôle = 'a').count()
-    context = {
-        'NombreDeMembres': NombreDeMembres,
-        'NombreAdmin': NombreAdmin,
-    }
-    return render(request, 'membresMEE.html', context = context)
-
-def Modifier(request):
-    return render(request, 'Modifier.html')
 def Inscription(request):
     return render(request, 'Inscription.html')
 
@@ -38,3 +51,7 @@ class RessourceInfoListView(generic.ListView):
 
 class MachineListView(generic.ListView):
     model = Machine
+
+def choixPage(request):
+    return render(request, 'choixPage.html')
+
