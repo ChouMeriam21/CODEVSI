@@ -4,12 +4,23 @@ from django.db import models
 # Create your models here.
 
 class Utilisateur(models.Model):
-    id = models.BigAutoField(primary_key = True)
+    id = models.BigAutoField(primary_key = True)                   # Auto-incrémentation de la clé primaire
     nom = models.fields.CharField(max_length=100)
     prénom = models.fields.CharField(max_length=100)
     email = models.fields.EmailField(unique=True)
-    mot_de_passe = models.fields.CharField(max_length = 20)
-    commentaire = models.fields.CharField(max_length = 150)
+    ROLES = (                                            #On fixe les différents rôles pour pouvoir filtré les utilisateurs selon leur rôle.
+        ('a', 'Administrateur'),
+        ('u', 'Utilisateur_simple'),
+        ('d', 'Administrateur_délégué'),
+    )
+    rôle = models.CharField(
+        max_length=1,
+        choices=ROLES,
+        blank=True,
+        default='u',
+    )
+    mot_de_passe = models.fields.CharField(max_length = 20)         # La valeur max est arbitraire
+    commentaire = models.fields.CharField(max_length = 150)         
 
     def __str__(self): #Fonction qui retourne une chaîne de caractère pour identifier l'instance de la classe
         return self.nom + " " + self.prénom
@@ -30,7 +41,7 @@ class Utilisateur_Statut(models.Model):
     commentaire = models.fields.CharField(max_length = 150)
 
     class Meta :
-        unique_together = ('id_utilisateur', 'id_statut')
+        unique_together = ('id_utilisateur', 'id_statut')       # Pour gérer les clefs primaires à plusieurs attributs
     
     def __str__(self):
         return self.commentaire
@@ -74,27 +85,6 @@ class Utilisateur_Ressource_Info(models.Model):
 
     class Meta :
         unique_together = ('id_utilisateur', 'id_ressource')
-    
-    def __str__(self):
-        return self.commentaire
-
-class Rôle(models.Model):
-    id = models.BigAutoField(primary_key=True)
-    nom = models.CharField(max_length = 100)
-    commentaire = models.fields.CharField(max_length = 150)
-
-    def __str__(self):
-        return self.nom
-
-class Utilisateur_Rôle(models.Model):
-    id_utilisateur = models.OneToOneField(Utilisateur, on_delete=models.CASCADE, primary_key = True)
-    id_rôle = models.ForeignKey(Rôle, on_delete=models.CASCADE)
-    date_début = models.DateField()
-    date_fin = models.DateField()
-    commentaire = models.fields.CharField(max_length = 150)
-
-    class Meta :
-        unique_together = ('id_utilisateur', 'id_rôle')
     
     def __str__(self):
         return self.commentaire

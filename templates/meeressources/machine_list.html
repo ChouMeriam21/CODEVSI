@@ -1,0 +1,14 @@
+{% block content %}
+  <h1>Machines</h1>
+  {% if machine_list %}
+  <ul>
+    {% for elt in machine_list %}
+      <li>
+        <a>{{ elt.commentaire }}</a> 
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>Il n'y a pas encore de machine</p>
+  {% endif %}
+{% endblock %}

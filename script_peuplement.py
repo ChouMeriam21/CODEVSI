@@ -14,7 +14,7 @@ et doivent s'appeler respectivement :
 'utilisateurs.csv' pour les utilisateurs
 'machines.csv' pour les machines
 'clés.csv' pour les clés
-'ressources_info' pour les ressources informatiques*
+'ressources_info' pour les ressources informatiques
 
 Les fichiers csv doivent être dans le même répertoire que l'appli meeressources.
 
@@ -38,7 +38,7 @@ pièces = [
     )
     for row in tmp_data_pièces['ID']
 ]
-Pièce.objects.bulk_create(pièces)
+Pièce.objects.bulk_create(pièces) 
 
 
 # tmp_data_utilisateurs = pd.read_csv('utilisateurs.csv',sep=',')

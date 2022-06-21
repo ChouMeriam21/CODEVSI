@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+{% load static %}
+  <!-- Coding by CodingLab | www.codinglabweb.com -->
+<html lang="fr">
+<style>
+    .content-table {
+    border-color:#695CFE;
+    margin: 120px 0;
+    font-size:0.9em;
+    min-width: 990px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    border-collapse:separate;
+}
+
+.content-table thead tr {
+    background-color:#E4E9F7;
+    color: #695CFE;
+    text-align: center;
+    font-weight: bold;
+}
+.content-table td {
+    padding: 12px 15px;
+}
+.content-table th{
+    width:165px;
+}
+    
+.content-table tbody tr{
+    border-bottom: 1px solid white;
+}
+.content-table tbody tr:nth-of-type(even) {
+    background:#f3f3f3;
+}
+.content-table tbody tr:last-of-type {
+    border-bottom: 2px solid #E4E9F7;
+}
+.content-table tbody tr.active-row {
+    font-weight: bold;
+    color: #E4E9F7;
+}
+.button1-table {
+        display: inline-block;
+        background-color: rgb(181, 18, 18);
+        border-radius: 50px;
+        border: 4px double #cccccc;
+        color: #eeeeee;
+        font-size: 10px;
+        padding: 20px;
+        width: 40px;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 5px;
+        height: 10px;
+        justify-content: center;
+        align-items: center;
+      }
+      .button1-table span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+        text-align: center;
+      }
+      .button1-table span:after {
+        content: "\00bb";
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.5s;
+      }
+      .button1-table:hover {
+        background-color: #695CFE;
+      }
+      .button1-table:hover span {
+        padding-right: 25px;
+      }
+      .button1-table:hover span:after {
+        opacity: 1;
+        right: 0;
+      }
+
+      
+      
+      .button2-table {
+        display: inline-block;
+        background-color: green;
+        border-radius: 50px;
+        border: 4px double #cccccc;
+        color: #eeeeee;
+        font-size: 10px;
+        padding: 20px;
+        width: 40px;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 5px;
+        height: 10px;
+        justify-content: center;
+        align-items: center;
+      }
+      .button2-table span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+        text-align: center;
+      }
+      .button2-table span:after {
+        content: "\00bb";
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.5s;
+      }
+      .button2-table:hover {
+        background-color: #695CFE;
+      }
+      .button2-table:hover span {
+        padding-right: 25px;
+      }
+      .button2-table:hover span:after {
+        opacity: 1;
+        right: 0;
+      }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'css/PageMembres.css' %}" rel="stylesheet">
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
+    <!----===== Boxicons CSS ===== -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--<title>Dashboard Sidebar Menu</title>--> 
+</head>
+<body>
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <!--<img src="logo.png" alt="">-->
+                </span>
+
+                <div class="text logo-text">
+                    <span class="name">Nom Prénom</span>
+                    <span class="profession">Administrateur</span>
+                </div>
+            </div>
+
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+                <ul class="menu-links">
+                    <li class="nav-link">
+                      <a href="{% url 'PageAdmin'%}">
+                        <i class='bx bx-home-alt icon' ></i>
+                        <span class="text nav-text">Ma Fiche</span>
+                    </a>
+                </li>
+
+                <li class="nav-link">
+                    <a href="{% url 'membresMEE'%}">
+                        <i class='bx bx-user-circle icon' ></i>
+                        <span class="text nav-text">Membres MEE</span>
+                    </a>
+                </li>
+
+                <li class="nav-link">
+                    <a href="{% url 'ressourcesInfo' %}">
+                        <i class='bx bx-bookmark icon'></i>
+                        <span class="text nav-text">Ressources informatiques</span>
+                    </a>
+                </li>
+
+                <li class="nav-link">
+                    <a href="{% url 'machines' %}">
+                        <i class='bx bx-bookmark icon'></i>
+                        <span class="text nav-text">Machines</span>
+                    </a>
+                </li>
+
+                <li class="nav-link">
+                    <a href="{% url 'admin:index' %}">
+                        <i class='bx bx-link icon' ></i>
+                        <span class="text nav-text">Associer ressource</span>
+                    </a>
+                </li>
+                <li class="nav-link">
+                    <a href="#">
+                        <i class='bx bx-user-plus icon' ></i>
+                        <span class="text nav-text">Demande d'ajout</span>
+                    </a>
+                  </li>
+                </ul>
+            </div>
+
+            <div class="bottom-content">
+                <li class="">
+                    <a href="{% url 'logout' %}">
+                        <i class='bx bx-log-out icon' ></i>
+                        <span class="text nav-text">Déconnexion</span>
+                    </a>
+                </li>  
+            </div>
+        </div>
+
+    </nav>
+
+    <section class="home">
+        <div class="text">
+            Mon Portail: Administrateur
+            <img class="header_img" src="https://upload.wikimedia.org/wikipedia/commons/6/67/IMT_Atlantique_logo.png" alt="">
+        </div>
+        <div class="card">
+            <h1 class="prf">
+                Membres du Département MEE
+            </h1>
+            <p><var>{{NombreDeMembres}}</var> Membres</p>
+            <p><var>{{NombreAdmin}}</var> Administrateurs</p><br><br>
+            <hr class="line"> <br>
+                <div class="container">
+                    <input type="text" class="search" placeholder="Search"/>
+                    <button class="searchBtn"><i class="fa fa-search"></i></button>
+                 </div>
+             <table class="content-table">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Prénom</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Statut</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>cd</td>
+                    <td>cd</td>
+                    <td>cd</td>
+                    <td>cd</td>
+                    <td>
+                      <button class="button1-table">
+                        <a href="{% url 'admin:index' %}">
+                          <span><i class="fa fa-trash"></i></span>
+                        </a>
+                      </button>
+                      <button class="button2-table">
+                        <a href="{% url 'admin:index' %}"><span>
+                          <i class="fa-solid fa-pen-to-square"></i></span>
+                        </a>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+        <script>
+            const body = document.querySelector('body'),
+          sidebar = body.querySelector('nav'),
+          toggle = body.querySelector(".toggle"),
+          searchBtn = body.querySelector(".search-box"),
+          modeSwitch = body.querySelector(".toggle-switch"),
+          modeText = body.querySelector(".mode-text");
+          const icon = document.querySelector(".icon");
+          const search = document.querySelector(".search");   
+    icon.onclick = function(){
+        search.classList.toggle('active')
+    }
+    
+    toggle.addEventListener("click" , () =>{
+        sidebar.classList.toggle("close");
+    })
+    
+    searchBtn.addEventListener("click" , () =>{
+        sidebar.classList.remove("close");
+    })
+    
+    modeSwitch.addEventListener("click" , () =>{
+        body.classList.toggle("dark");
+        
+        if(body.classList.contains("dark")){
+            modeText.innerText = "Light mode";
+        }else{
+            modeText.innerText = "Dark mode";
+            
+        }
+    });
+        </script>
+    
+    </body>
+    </html>

@@ -5,9 +5,9 @@ from django.contrib import admin
 from meeressources.models import *
 
 class UtilisateurAdmin(admin.ModelAdmin):
-    list_display = ('id', 'nom', 'prénom', 'email', 'commentaire')
+    list_display = ('id', 'nom', 'prénom', 'email', 'rôle', 'commentaire')
 
-admin.site.register(Utilisateur, UtilisateurAdmin)
+admin.site.register(Utilisateur, UtilisateurAdmin)      # Pour inscrire la classe Utilisateur avec un affichage pour les admin
 
 class StatutAdmin(admin.ModelAdmin):
     list_display = ('id', 'nom', 'commentaire')
@@ -39,16 +39,6 @@ class Utilisateur_Ressource_InfoAdmin(admin.ModelAdmin):
 
 admin.site.register(Utilisateur_Ressource_Info, Utilisateur_Ressource_InfoAdmin)
 
-class RôleAdmin(admin.ModelAdmin):
-    list_display = ('id', 'nom', 'commentaire')
-
-admin.site.register(Rôle, RôleAdmin)
-
-class Utilisateur_RôleAdmin(admin.ModelAdmin):
-    list_display = ('id_utilisateur', 'id_rôle', 'date_début', 'date_fin', 'commentaire')
-
-admin.site.register(Utilisateur_Rôle, Utilisateur_RôleAdmin)
-
 class PièceAdmin(admin.ModelAdmin):
     list_display = ('id', 'nom_salle', 'commentaire')
 
@@ -68,6 +58,7 @@ class Utilisateur_CléAdmin(admin.ModelAdmin):
     list_display = ('id_utilisateur', 'id_clef', 'date_début', 'date_fin', 'commentaire', 'responsable')
 
 admin.site.register(Utilisateur_Clé, Utilisateur_CléAdmin)
+
 
 class Pièce_CléAdmin(admin.ModelAdmin):
     list_display = ('id_pièce', 'id_clé', 'commentaire')

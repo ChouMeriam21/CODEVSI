@@ -1,0 +1,15 @@
+{% block content %}
+  <h1>Ressources informatiques</h1>
+  {% if ressource_info_list %}
+  <ul>
+    {% for elt in ressource_info_list %}
+      <li>
+        <a>{{ elt.commentaire }}</a> 
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>Il n'y a pas encore de ressources informatiques</p>
+  {% endif %}
+{% endblock %}
+

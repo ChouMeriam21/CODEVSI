@@ -19,26 +19,25 @@ from django.urls import include
 from django.views.generic import RedirectView
 from django.conf import settings
 from django.conf.urls.static import static
-<<<<<<< HEAD
-=======
-from django.urls import include
 
->>>>>>> Branch2
+
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),        # donne le chemin pour la page admin
 ]
 
 urlpatterns += [
-    path('meeressources/', include('meeressources.urls')),
+    path('meeressources/', include('meeressources.urls')),      # donne le chemin pour la page d'accueil de l'appli
 ]
 
 urlpatterns += [
-    path('', RedirectView.as_view(url='/meeressources/', permanent=True)),
+    path('', RedirectView.as_view(url='/meeressources/', permanent=True)),      # Pour rediriger automatiquement vers la page d'accueil de l'appli
 ]
 
-<<<<<<< HEAD
 urlpatterns += static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
-=======
-urlpatterns += static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
->>>>>>> Branch2
+
+#Add Django site authentication urls (for login, logout, password management)
+
+urlpatterns += [
+    path('accounts/', include('django.contrib.auth.urls')),
+]
